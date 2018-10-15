@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>SignUp</title>
+<style>
+body {background-color: yellow;}
+h1   {color: blue;}
+p    {color: red;}
+</style>
+</head>
+<body>
+<form action="signup" method="post">
+<fieldset>
+<legend>Buddy Information</legend>
+associateid:<br>
+ <input type="text" name="associateid" value="15456"><br><br>
+firstname:<br>
+ <input type="text" name="firstName" required><br><br>
+lastname:<br>
+ <input type="text" name="lastName"><br><br>
+departmentname:<br>
+ <input type="text" name="department"><br><br>
+designation:<br>
+<input list="designation">
+<datalist id="designation">
+<option value="A4">
+<option value="A5">
+<option value="A6">
+<option value="A7">
+</datalist> 
+<br><br>
+dateofbirth:<br>
+ <input type="date" name="date"><br><br>
+<!-- username:<br>
+ <input type="text" name="associateid"><br><br> -->
+password:<br>      
+ <input type="password" name="password"><br><br>
+hobbies:<br>
+ <input type="text" name="hobby"><br><br>
+gender:<br>
+ <input type="radio" name="gendr" value="male" checked>Male<input type="radio" name="gendr" value="fmale">FeMale <br>
+<br>
+<select name="degrees" multiple>
+<option value="Graduation">Graduation</option>
+<option value="PostGraduation">PostGraduation</option>
+</select>
+<br><br>
+email:<br>
+ <input type="email" name="email"><br><br>
+age:<br>
+ <input type="range" name="age" min="0" max="150"><br><br>
+address:<br>
+ <textarea name="address" rows="10" cols="40"></textarea>
+ <br><br>
+resume:<br>
+ <input type="file" name="myResume"><br><br>
+<input type="submit" value="Submit it">
+<input type="reset" value="Reset it">
+</fieldset>
+</form> 
+
+</body>
+</html>
