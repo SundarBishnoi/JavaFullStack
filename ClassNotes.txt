@@ -1,0 +1,118 @@
+.LOG
+
+
+12:46 PM 11/12/2018
+server.port=4444
+spring.datasource.url=jdbc:oracle://localhost:3306/payrollDB
+spring.datasource.driver-class-name=com.oracle.jdbc.Driver
+spring.datasource.username=hr
+spring.datasource.password=hr
+spring.jpa.show-sql=true
+spring.jpa.hibernate.ddl-auto=create
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.oracleDialect
+
+
+
+
+
+
+for selenium-- google search
+selenium chrome driver 2.43
+add dependency pulgin in pom.xml
+write testrunner class and run with junit
+
+
+
+	private WebDriver driver;
+	@Given("^User is on github login page$")
+	public void user_is_on_github_login_page() throws Throwable {
+	    
+	}
+
+	@When("^User Login On 'github\\.com'$")
+	public void user_Login_On_github_com() throws Throwable {
+		
+	}
+
+	@Then("^all github repository should be displayed$")
+	public void all_github_repository_should_be_displayed() throws Throwable {
+		  
+	}
+	@Then("^message should be displayed 'Incorrect username or password' on same page\\.$")
+	public void message_should_be_displayed_Incorrect_username_or_password_on_same_page() throws Throwable {
+		   
+	}
+
+
+
+private WebDriver driver;
+	@Given("^User is on github login page$")
+	    public void user_is_on_github_login_page() throws Throwable {
+		
+	}
+	@When("^User Login On 'github\\.com'$")
+	public void user_Login_On_github_com() throws Throwable {
+		
+	}
+
+	@Then("^all github repository should be displayed$")
+	public void all_github_repository_should_be_displayed() throws Throwable {
+		   
+	}
+
+	@When("^User Login On 'github\\.com' with wrong username$")
+	public void user_Login_On_github_com_with_wrong_username() throws Throwable {
+		
+	   
+	}
+
+	@Then("^message should be displayed 'Incorrect username' on same page\\.$")
+	public void message_should_be_displayed_Incorrect_username_on_same_page() throws Throwable {
+		   
+	}
+
+	@When("^User Login On 'github\\.com' with wrong password$")
+	public void user_Login_On_github_com_with_wrong_password() throws Throwable {
+		
+	}
+
+	@Then("^message should be displayed 'Incorrect password' on same page\\.$")
+	public void message_should_be_displayed_Incorrect_password_on_same_page() throws Throwable {
+		
+
+	}
+
+for angular  
+
+visual studio code download 
+
+
+nodejs download from google first link
+
+after installation 
+open cmd and type below to check version
+node -v
+
+
+npm config set proxy http://puneproxy.igate.com:8080
+
+npm config set https-proxy http://puneproxy.igate.com:8080
+
+npm install -g typescript
+
+npm==node pacakge manager
+
+this is hidden path inside paste this path inside 
+C:\Users\subishno\AppData\Roaming\npm
+
+computer^properties->Advanced system setting -> advanced -> environment variable -> path -> ; -> (paste hidden path) and click ok..
+
+To check in cmd whether typescript package added or not in global...
+type tsc 
+12:05 PM 11/22/2018
+
+Angular 1.2 MVC based framework which supports js
+
+
+						ECMA 6
+				VbScript			JavaScript
