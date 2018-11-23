@@ -114,5 +114,44 @@ type tsc
 Angular 1.2 MVC based framework which supports js
 
 
+now execute all the basic program assignment in typescript..
+
 						ECMA 6
 				VbScript			JavaScript
+angular.io === for angular leaning
+
+shift+right click to open command from opened folder.
+
+npm install -g @angular/cli
+
+ng new APMSample
+
+y -> css
+
+added dependency in package.json "bootstrap": "4.1.1",
+
+
+Component 
+	        html+css      	view
+		class		properties+methods
+		metadata	decorator
+
+when u create component 3 things created  component.ts  ==class
+					  component.html
+					  component.css
+
+
+
+
+ng g c sales\salesreport --flat
+ng g c products\productlist --flat
+
+ng g i products/Product     // command for interface
+ng g p shared/ConvertToSpace
+
+
+Q.What do you mean by single page Application and its benefits?
+Q.How Angular application internally execute?
+
+https://angular.io/guide/pipes      //read it.
+5:37 PM 11/23/2018
