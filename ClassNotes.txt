@@ -23,64 +23,10 @@ write testrunner class and run with junit
 
 
 
-	private WebDriver driver;
-	@Given("^User is on github login page$")
-	public void user_is_on_github_login_page() throws Throwable {
-	    
-	}
-
-	@When("^User Login On 'github\\.com'$")
-	public void user_Login_On_github_com() throws Throwable {
-		
-	}
-
-	@Then("^all github repository should be displayed$")
-	public void all_github_repository_should_be_displayed() throws Throwable {
-		  
-	}
-	@Then("^message should be displayed 'Incorrect username or password' on same page\\.$")
-	public void message_should_be_displayed_Incorrect_username_or_password_on_same_page() throws Throwable {
-		   
-	}
 
 
 
-private WebDriver driver;
-	@Given("^User is on github login page$")
-	    public void user_is_on_github_login_page() throws Throwable {
-		
-	}
-	@When("^User Login On 'github\\.com'$")
-	public void user_Login_On_github_com() throws Throwable {
-		
-	}
 
-	@Then("^all github repository should be displayed$")
-	public void all_github_repository_should_be_displayed() throws Throwable {
-		   
-	}
-
-	@When("^User Login On 'github\\.com' with wrong username$")
-	public void user_Login_On_github_com_with_wrong_username() throws Throwable {
-		
-	   
-	}
-
-	@Then("^message should be displayed 'Incorrect username' on same page\\.$")
-	public void message_should_be_displayed_Incorrect_username_on_same_page() throws Throwable {
-		   
-	}
-
-	@When("^User Login On 'github\\.com' with wrong password$")
-	public void user_Login_On_github_com_with_wrong_password() throws Throwable {
-		
-	}
-
-	@Then("^message should be displayed 'Incorrect password' on same page\\.$")
-	public void message_should_be_displayed_Incorrect_password_on_same_page() throws Throwable {
-		
-
-	}
 
 for angular  
 
@@ -155,3 +101,22 @@ Q.How Angular application internally execute?
 
 https://angular.io/guide/pipes      //read it.
 5:37 PM 11/23/2018
+
+9:32 AM 11/26/2018
+after any changes made or added dependencies you have to fire command npm install
+
+for dependencies --- package.json
+for project configuration angular.json
+
+ng g s services\product --flat
+
+ng g c .\shared\star --flat == 
+
+
+
+hookup are only in component class and gets loaded but not in service
+
+
+subscribe has 2 argument of functions  ==  data function  and errorFunction 
+and either of two will work based on what occurs
+ng generate component component-name  // to create a class
