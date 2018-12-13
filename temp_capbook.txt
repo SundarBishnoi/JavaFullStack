@@ -1,0 +1,162 @@
+package com.cg.project.beans;
+ 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+ @Entity
+public class Posts {
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private int postId;
+	private String friendId;
+	private String post;
+	private String postDate;
+	
+	@ManyToOne
+	@JoinColumn(name="emailId")
+	 @JsonBackReference
+	private User1 user;
+ 
+	public Posts() {
+		super();
+	}
+	public Posts(String friendId, String post, User1 user) {
+		super();
+		this.friendId = friendId;
+		this.post = post;
+		this.user = user;
+		setPostDate();
+	}
+	public String getFriendId() {
+		return friendId;
+	}
+	public void setFriendId(String friendId) {
+		this.friendId = friendId;
+	}
+	public String getPost() {
+		return post;
+	}
+	public void setpost(String post) {
+		this.post = post;
+	}
+	public User1 getUser() {
+		return user;
+	}
+	public void setUser(User1 user) {
+		this.user = user;
+	}
+	public String getPostDate() {		 
+		return this.postDate;
+	}
+
+	public void setPostDate() {
+		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
+	    Date date = new Date();  
+		this.postDate = formatter.format(date);
+	}
+ 
+}
+
+
+
+
+
+
+	
+	@RequestMapping(value="/post",method = RequestMethod.GET,produces=MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<HttpStatus> postStatusAction(@RequestParam("friendId") String friendId,@RequestParam("post")String post,@RequestParam("userId") String userId){
+	try {
+		accountServices.addPost( friendId, post, userId);	
+	}catch(UserDetailsNotFoundException e) {
+		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+	}
+	return new ResponseEntity<>(HttpStatus.OK);
+	}
+	@RequestMapping(value="/getPosts",method = RequestMethod.GET,produces=MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<Posts>> getAllPostsAction(@RequestParam("userId")String userId){
+		List<Posts> post = accountServices.getPosts(userId);
+		List<Posts> postList = new ArrayList<>();
+		for(Posts pst : post) {
+			if(pst.getUser().getEmailId().equals(userId))
+				postList.add(pst);
+		}
+		return new ResponseEntity<>(postList,HttpStatus.OK);
+	}
+	
+	
+
+
+
+
+
+package com.cg.project.daoservices;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
+import com.cg.project.beans.Posts;
+
+public interface PostsDAO extends JpaRepository<Posts, Integer>{
+	@Query(value="SELECT * from Posts WHERE p.friend_id=:userId",nativeQuery = true)
+	List<Posts> findByFriendId(@Param("userId")String userId);
+}
+
+
+
+
+
+
+
+
+
+
+
+User1 addPost(String friendId,String post,String userId) throws UserDetailsNotFoundException;
+	List<Posts> getPosts(String userId);
+	
+
+
+
+@Override
+	public User1 addPost(String friendId, String post, String userId) throws UserDetailsNotFoundException {
+		User1 user = userDAO.findByEmailId(userId);
+		Relationship relation = relationshipDAO.findByIds(userId, friendId);
+		if(relation.getStatus()==1) {
+			Posts p = new Posts(friendId, post, user);
+			postsDAO.save(p);
+			return user;
+		}
+		return null;
+	}
+
+
+	@Override
+	public List<Posts> getPosts(String userId) {
+		List<Posts> postList = new ArrayList<>();
+		postList = postsDAO.findByFriendId(userId);
+		return postList;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
